@@ -1,0 +1,11 @@
+# Dependency directories 
+node_modules/
+package-lock.json
+
+# Hugo build artifacts
+public/
+resources/
+.hugo_build.lock
+
+# System files
+.DS_Store
