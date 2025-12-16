@@ -29,31 +29,31 @@
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden selection:bg-pink-500 selection:text-white" 
+<body class="antialiased overflow-x-hidden selection:bg-pink-500 selection:text-white bg-slate-900" 
       style="font-family: 'Roboto', sans-serif;"
       hx-boost="true" 
       hx-target="main" 
       hx-select="main" 
       hx-swap="outerHTML">
 
-    <nav id="navbar" class="fixed top-6 left-0 right-0 z-50 flex justify-center transition-transform duration-300">
-        <div class="flex items-center px-8 py-3 
+      <nav id="navbar" class="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center transition-transform duration-300 px-4 md:px-0">
+        <div class="flex flex-col md:flex-row items-center px-6 py-3 md:px-8 
                     bg-white/10 backdrop-blur-xl 
-                    border border-white/20 rounded-full 
+                    border border-white/20 rounded-2xl md:rounded-full 
                     shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] 
                     transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]">
             
-            <div class="flex justify-start pr-4" style="min-width: 195px;">
-                <a href="/" class="text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
+            <div class="flex justify-center md:justify-end w-full md:w-[195px] md:pr-4">
+                <a href="/" class="w-[175px] whitespace-nowrap text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
                     <span class="font-bold" style="font-family: 'Courier New', monospace;">$</span>
                     <span id="typewriter-text">jack-morgan</span>
                     <span class="cursor-blink ml-1">_</span>
                 </a>
             </div>
             
-            <div class="h-4 w-px bg-white/30 mx-6"></div>
+            <div class="h-px w-full md:h-4 md:w-px bg-white/30 my-2 md:my-0 md:mx-6"></div>
             
-            <div class="flex justify-start gap-4 pl-4" style="min-width: 195px;">
+            <div class="flex justify-center md:justify-start gap-4 w-full md:w-[195px] md:pl-4">
                 <a href="/" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">Home</a>
                 <a href="/about" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">About</a>
                 <a href="/posts" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">Blog</a>
