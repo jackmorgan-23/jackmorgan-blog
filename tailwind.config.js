@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         'glass-surface': 'rgba(255, 255, 255, 0.1)',
       },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],
