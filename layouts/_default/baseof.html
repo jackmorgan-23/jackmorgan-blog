@@ -36,7 +36,7 @@
       hx-select="main" 
       hx-swap="outerHTML">
 
-    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center">
+    <nav id="navbar" class="fixed top-6 left-0 right-0 z-50 flex justify-center transition-transform duration-300">
         <div class="flex items-center px-8 py-3 
                     bg-white/10 backdrop-blur-xl 
                     border border-white/20 rounded-full 
@@ -66,7 +66,7 @@
     </main>
 
     <footer class="text-center py-8 text-white/40 text-sm">
-        <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+        <p>&copy; {{ now.Year }} Jack Morgan</p>
     </footer>
 
     <script>
@@ -101,7 +101,7 @@
 
             async function runLoop() {
                 while(true) {
-                    await new Promise(r => setTimeout(r, 2000));
+                    await new Promise(r => setTimeout(r, 20000));
                     const gag = gags[Math.floor(Math.random() * gags.length)];
                     await typeText(mainPhrase, true);
                     await typeText(gag, false);
@@ -112,6 +112,23 @@
             }
 
             runLoop();
+        });
+    </script>
+
+    <script>
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            // If we scrolled down AND we are not at the very top (buffer of 50px)
+            if (window.scrollY > lastScrollY && window.scrollY > 50) {
+                // Hide Navbar (Move it up out of view)
+                navbar.style.transform = 'translateY(-150%)';
+            } else {
+                // Show Navbar (Bring it back to default)
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
         });
     </script>
 
