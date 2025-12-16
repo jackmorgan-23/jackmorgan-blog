@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,8 +43,8 @@
                     shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] 
                     transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]">
             
-            <div class="w-[165px] flex justify-end pr-4">
-                <a href="/" class="w-[155px] text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
+            <div class="flex justify-start pr-4" style="min-width: 195px;">
+                <a href="/" class="text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
                     <span class="font-bold" style="font-family: 'Courier New', monospace;">$</span>
                     <span id="typewriter-text">jack-morgan</span>
                     <span class="cursor-blink ml-1">_</span>
@@ -55,7 +53,7 @@
             
             <div class="h-4 w-px bg-white/30 mx-6"></div>
             
-            <div class="w-[165px] flex justify-start gap-4 pl-4">
+            <div class="flex justify-start gap-4 pl-4" style="min-width: 195px;">
                 <a href="/" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">Home</a>
                 <a href="/about" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">About</a>
                 <a href="/posts" class="text-sm font-medium text-gray-200 hover:text-white transition-colors">Blog</a>
@@ -103,7 +101,7 @@
 
             async function runLoop() {
                 while(true) {
-                    await new Promise(r => setTimeout(r, 20000));
+                    await new Promise(r => setTimeout(r, 2000));
                     const gag = gags[Math.floor(Math.random() * gags.length)];
                     await typeText(mainPhrase, true);
                     await typeText(gag, false);
