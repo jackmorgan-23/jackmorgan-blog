@@ -19,7 +19,7 @@ My blog was born following a phone call I had with a relative in the CS industry
 Thinking past the blog, I knew I wanted my posts to be about Generative AI. I decided to incorporate AI into the web development process, not only to boost my learning, but to see if GenAI would lead my project down a dangerous path. The model I used for the majority of my development was Google’s Gemini 3 Pro.
 
 
-Prior to this blog, I truly had zero knowledge on building an application. I reached out to my fellow classmates and peers to gauge what they used when implementing their own projects. YouTube also served as a helpful resource for more detailed explanations. This [guide](https://youtu.be/6BRZ-yHjYwo?si=Z34xhSOVQ-OdMG7O) from Lama Dev was a good introduction to Hugo:
+Prior to this blog, I truly had zero knowledge on building an application. I reached out to my fellow classmates and peers to gauge what they used when implementing their own projects. YouTube also served as a helpful resource for more detailed explanations. This [guide](https://youtu.be/6BRZ-yHjYwo?si=Z34xhSOVQ-OdMG7O) from Lama Dev was a good introduction to Hugo.
 
 ## Creating a Project Folder
 
