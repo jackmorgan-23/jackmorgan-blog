@@ -29,7 +29,7 @@
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden selection:bg-pink-500 selection:text-white bg-slate-900" 
+<body class="antialiased overflow-x-hidden selection:bg-pink-500 selection:text-white bg-gradient-to-b from-[#2a145d] via-[#1b103f] to-[#0b0a1a]" 
       style="font-family: 'Roboto', sans-serif;"
       hx-boost="true" 
       hx-target="main" 
@@ -44,7 +44,7 @@
                     transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]">
             
             <div class="flex justify-center md:justify-end w-full md:w-[195px] md:pr-4">
-                <a href="/" class="w-[175px] whitespace-nowrap text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
+                <a href="/" class="w-[175px] shrink-0 justify-start text-left whitespace-nowrap text-lg font-semibold tracking-wide text-white drop-shadow-md font-mono flex items-center">
                     <span class="font-bold" style="font-family: 'Courier New', monospace;">$</span>
                     <span id="typewriter-text">jack-morgan</span>
                     <span class="cursor-blink ml-1">_</span>
@@ -75,7 +75,7 @@
             if (!element) return;
 
             const mainPhrase = "jack-morgan";
-            const gags = ["Hello World", "roll cats!", "sudo rm -rf /*", "On Belay?"];
+            const gags = ["Hello World", "roll cats!", "sudo rm -rf /*", "On Belay?",];
             
             function typeText(text, isDeleting) {
                 return new Promise(resolve => {
@@ -101,7 +101,7 @@
 
             async function runLoop() {
                 while(true) {
-                    await new Promise(r => setTimeout(r, 20000));
+                    await new Promise(r => setTimeout(r, 30000));
                     const gag = gags[Math.floor(Math.random() * gags.length)];
                     await typeText(mainPhrase, true);
                     await typeText(gag, false);
@@ -115,22 +115,33 @@
         });
     </script>
 
-    <script>
-        let lastScrollY = window.scrollY;
-        const navbar = document.getElementById('navbar');
+<script>
+    //Forces instant scroll to top when page changes
+    document.body.addEventListener('htmx:afterSwap', function(event) {
+        window.scrollTo(0, 0);
+    });
 
-        window.addEventListener('scroll', () => {
-            // If we scrolled down AND we are not at the very top (buffer of 50px)
-            if (window.scrollY > lastScrollY && window.scrollY > 50) {
-                // Hide Navbar (Move it up out of view)
-                navbar.style.transform = 'translateY(-150%)';
-            } else {
-                // Show Navbar (Bring it back to default)
-                navbar.style.transform = 'translateY(0)';
-            }
-            lastScrollY = window.scrollY;
-        });
-    </script>
+    // 2. NAVBAR SCROLL LOGIC
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
 
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // Ignore rubber banding
+        if (currentScrollY < 0) return;
+        
+        // Ignore tiny movements (Jitter Threshold)
+        if (Math.abs(currentScrollY - lastScrollY) < 10) return;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            navbar.style.transform = 'translateY(-150%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScrollY = currentScrollY;
+    });
+</script>
+    
 </body>
 </html>

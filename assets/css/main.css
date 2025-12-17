@@ -2,26 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Global Background */
-body {
-    /* Deep purple/black radial gradient */
-    font-family: 'Roboto', sans-serif;
-    background: radial-gradient(circle at 50% 0%, #3b0764 0%, #1e1b4b 40%, #000000 100%);
-    color: white;
-    min-height: 100vh;
-}
 
-/* Glassmorphism for Code Blocks */
-.prose pre {
-    background-color: rgba(0, 0, 0, 0.4) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    overflow-x: auto;
-}
+html {
+    background-color: #0b0a1a;
+  }
+
+/* Custom Global Background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(168, 85, 247, 0.15), transparent 60%),
+      radial-gradient(800px 400px at 80% 20%, rgba(56, 189, 248, 0.08), transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+
 
 /* Scrollbar styling for code blocks */
 .prose pre::-webkit-scrollbar {
@@ -33,6 +31,13 @@ body {
 .prose pre::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2); 
     border-radius: 4px;
+}
+
+.prose code::before {
+    content: "" !important;
+}
+.prose code::after {
+    content: "" !important;
 }
 /* Custom Terminal Blink */
 @keyframes hard-blink {

@@ -1,0 +1,13 @@
+<div class="relative group my-6 rounded-2xl overflow-hidden bg-black/50 border border-white/10 shadow-inner">
+    
+    {{ if .Type }}
+    <div class="absolute top-3 right-3 z-10 px-2 py-1 rounded-md 
+                bg-white/10 border border-white/10 
+                text-xs font-mono text-pink-300 font-bold uppercase select-none">
+        {{ .Type }}
+    </div>
+    {{ end }}
+
+    <pre class="!m-0 !p-6 !bg-transparent overflow-x-auto text-sm leading-relaxed">{{ .Inner }}</pre>
+
+</div>

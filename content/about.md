@@ -8,7 +8,7 @@ layout: "about"
 resume_url: "/ResumeNov25.pdf"
 
 # --- TECH STACK DATA ---
-# Colors: text-blue-400, text-red-400, text-green-400, text-yellow-400, etc.
+# Colors: text-green-400, text-yellow-400
 tech_stack:
   - name: "C"
     color: "green"
